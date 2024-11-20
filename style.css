@@ -10,13 +10,11 @@
   --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 
 body {
   display: flex;
@@ -24,6 +22,7 @@ body {
   align-items: center;
   height: 100vh;
   background-color: var(--color-background);
+  font-family: var(--font-family);
 }
 
 .button {
@@ -45,11 +44,10 @@ body {
     0 2px 4px rgb(0 0 0 / .25);
   transition: .2s;
   will-change: transform;
-  
-  &:active {
-    transform: scale(.92);
-    filter: brightness(.8);
-  }
+}
+
+.button:hover {
+  cursor: grab;
 }
 
 .button-hat {
@@ -66,37 +64,34 @@ body {
   pointer-events: none;
 }
 
-
 .overlay {
-  display: none; 
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5); 
+  background: rgba(0, 0, 0, 0.5);
   justify-content: center;
   align-items: center;
-  z-index: 1000; 
+  z-index: 1000;
 }
 
-
 .popup {
-  background: var(--color-popup-bg); 
-  border: 1px solid var(--color-primary); 
+  background: var(--color-popup-bg);
+  border: 1px solid var(--color-primary);
   border-radius: 8px;
   width: 90%;
   max-width: 500px;
   padding: 20px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   position: relative;
   opacity: 0;
   transform: scale(0.8);
-  animation: fadeInUp 0.5s forwards; 
-  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)), url('https://www.transparenttextures.com/patterns/old-wall.png'); 
+  animation: fadeInUp 0.5s forwards;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)), url('https://www.transparenttextures.com/patterns/old-wall.png');
   background-size: cover;
 }
-
 
 @keyframes fadeInUp {
   from {
@@ -109,7 +104,6 @@ body {
   }
 }
 
-
 .popup-content {
   text-align: center;
   color: var(--color-text);
@@ -118,10 +112,9 @@ body {
 
 .popup-content h2 {
   margin-bottom: 15px;
-  color: var(--color-primary); 
-  font-family: "Delius", cursive;;
+  color: var(--color-primary);
+  font-family: "Delius", cursive;
 }
-
 
 .close-button {
   position: absolute;
@@ -135,7 +128,7 @@ body {
   height: 30px;
   font-size: 1.5rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: background 0.3s, color 0.3s;
 }
 
@@ -144,41 +137,38 @@ body {
 }
 
 .natal-button {
-  background-color: var(--color-primary); 
-  color: #ffffff; 
-  border: 2px solid var(--color-primary); 
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
   padding: 12px 25px;
   font-size: 1.1rem;
   cursor: pointer;
   position: relative;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-  text-transform: uppercase; 
-  letter-spacing: 1px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .natal-button:hover {
-  background-color: var(--color-primary-dark); 
-  color: #ffffff; 
-  transform: translateY(-2px); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
-}
-.button:hover{
-  cursor: grab;
+  background-color: var(--color-primary-dark);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-.linq{
+.linq {
   margin-top: 25px;
   animation: piscar 1s infinite;
-  
 }
-.linq a{
+
+.linq a {
   text-decoration: none;
   color: crimson;
   font-family: "Cherry Swash", serif;
-
 }
+
 .conteiner {
   height: 250px;
   width: 250px;
@@ -192,8 +182,9 @@ body {
 }
 
 .imagem img {
-  width: 100%; 
-  height: auto; }
+  width: 100%;
+  height: auto;
+}
 
 @keyframes piscar {
   0%, 100% {
@@ -202,4 +193,71 @@ body {
   50% {
     opacity: 0;
   }
-} 
+}
+
+@media (max-width: 768px) {
+  .popup {
+    width: 85%;
+    max-width: 400px;
+    padding: 15px;
+  }
+
+  .button {
+    padding: 14px 28px;
+    min-width: 10em;
+  }
+
+  .conteiner {
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    border: 5px solid #2d632f;
+  }
+
+  .natal-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .popup-content {
+    font-size: 1rem;
+  }
+
+  .button-hat {
+    top: -10px;
+    left: -12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup {
+    width: 95%;
+    max-width: 350px;
+  }
+
+  .button {
+    padding: 12px 24px;
+    min-width: 8em;
+  }
+
+  .conteiner {
+    width: 90%;
+    height: auto;
+    margin-left: 5%;
+    border: 3px solid #2d632f;
+  }
+
+  .natal-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+
+  .popup-content {
+    font-size: 0.9rem;
+  }
+
+  .button-hat {
+    top: -5px;
+    left: -7px;
+  }
+}
